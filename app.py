@@ -13,46 +13,6 @@ st.set_page_config(page_title='ChatGPT Assistant', layout='wide', page_icon='�
 # 第一个是减少侧边栏顶部空白，不同版本的st存在区别（此处适用1.19.0）
 st.markdown("""
     <style>
-    div.css-1vq4p4l.e1fqkh3o4 {
-        padding-top: 2rem !important;
-        }
-    .avatar {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        pointer-events: none;
-        margin:10px;
-    }
-    .avatar svg {
-        width: 30px;
-        height: 30px;
-    }
-    .avatar h2 {
-        font-size: 20px;
-        margin: 0px;
-    } 
-
-    .content-div {
-        padding: 5px 20px;
-        margin: 5px;
-        text-align: left;
-        border-radius: 10px;
-        border: none;
-        line-height: 1.6;   
-        font-size:17px; 
-        }
-    .content-div p{
-        padding: 4px;
-        margin : 2px;
-    } 
-    #chat-window{
-        padding: 10px 0px;
-        text-decoration: none;
-        color:white;
-    }
-    #chat-window:hover{
-        color: red;
-    }
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
@@ -73,7 +33,7 @@ if "initial_settings" not in st.session_state:
 
 with st.sidebar:
     # 此处href与下文的st.header内容相对应，跳转锚点
-    st.markdown("# 👻 聊天窗口")
+    st.markdown("## 聊天窗口")
     current_chat = st.radio(
         label='历史聊天窗口',
         format_func=lambda x: x.split('_')[0] if '_' in x else x,
@@ -159,7 +119,7 @@ area_gpt_content = st.empty()
 area_error = st.empty()
 
 st.write("\n")
-st.header('ChatGPT Assistant')
+st.markdown("### ChatGPT Assistant")
 tap_input, tap_context, tap_set = st.tabs(['💬 聊天', '🗒️ 预设', '⚙️ 设置'])
 
 with tap_context:
